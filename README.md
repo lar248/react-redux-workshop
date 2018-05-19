@@ -72,6 +72,14 @@ source link-all-lessons-deps.bat
   * [Framework vs Library vs Toolkit vs SDK](https://medium.com/@shashvatshukla/framework-vs-library-vs-platform-vs-api-vs-sdk-vs-toolkits-vs-ide-50a9473999db)
 
 ### Concepts
+* Intro React docs
+  * https://facebook.github.io/react/docs/hello-world.html
+
+  * https://facebook.github.io/react/docs/introducing-jsx.html
+
+  * https://facebook.github.io/react/docs/rendering-elements.html
+
+  * https://facebook.github.io/react/docs/components-and-props.html
 
 * Can describe UI with small composable api: `React.createElement(type, props, children)`
 
@@ -113,6 +121,7 @@ https://reactjs.org/docs/react-without-jsx.html)
  
 
 ## Redux
+There is a lot more on React than what is above but that should be a good first understanding of React within the context of the Redux egghead course. While React provides a way for components to manage their own state, in this workshop we will be providing state to components via `props`, and letting Redux manage the state.
 
 ![redux-diagram](./redux_workflow_diagram.png)
 
@@ -145,34 +154,52 @@ This will open a browser window to http://localhost:3000/
 We will build this app using React UI components, and will use Redux to provide the state data into these components.
 
 ### Lessons 1-4
+These introductory lessons will give demonstrate some of Redux's most important functionality that will be the building blocks for understanding how its designed and how to effectively use it.
 
+Watch the first 4 videos [here](https://egghead.io/lessons/react-redux-the-single-immutable-state-tree) before we dive into our first exercise in lesson 5. Continue following the lessons in the tutorial series along with the exercises in the lesons below!
 
 ### Lesson 5
-
+1. open `lesson-5/index.js` in your IDE
+2. in the terminal, change into the above directory
+3. follow instructions in the comments there.
 
 ### Lesson 6
+1. open `lesson-6/index.js` in your IDE
+2. in the terminal, change into the the above directory and run `npm start` or `yarn start`;
+   this will open a browser window to http://localhost:3000/
+3. per the end of the video, complete the code in `index.js` so that it behaves
+   as expected in the browser
+4. if necessary, see `lesson-6/index-complete` for the solution
+5. in the terminal `CTRL+C` to kill the web server
 
-
-### Lesson 7
-
-
-### Lesson 8
-
+### Lessons 7-8
+Follow the same directions for Lesosn 6, using the relevent directory of the target lesson.
 
 ### Lessons 9-13
+Follow the same directions for Lesosn 5, using the relevent directory of the target lesson.
 
+### Lesons 14-16
+No coding exercises included for these lessons
 
-### Lessons 17-19
+### Lesson 17
+Newcomers to React often use [refs](https://reactjs.org/docs/refs-and-the-dom.html) but they can and should be avoided as explained [here](https://stackoverflow.com/questions/29503213/use-state-or-refs-in-react-js-form-components).
 
+Follow the same directions for Lesosn 6, using the relevent directory of the target lesson.
+
+### Lessons 18-19
+Follow the same directions for Lesosn 6, using the relevent directory of the target lesson.
 
 ### Lessons 20-23
+These lessons introduce opportunities to refactor and extract out presentational components so they can be reused, tested, and modified by a collaborative team.
 
+Lesson 22 introduces the [React's Component Lifecycle API](https://reactjs.org/docs/react-component.html). Note that code reuse is primarily achieved through composition rather than inheritance in React so we extend the abstract class 'React.Component' only to subclass it for use of its lifecycle methods like 'render()', 'componentWillMount()', etc... 'Lifecycle methods' can be overriden to trigger certain code blocks at certain times. 
 
-### Lessons 24-26
+Follow the same directions for Lesosn 6, using the relevent directory of the target lesson.
 
+### Lessons 24-30
+We will wrap up the tutorial by leveraging certain bindings (like 'react-redux') that we can import to more elegeantly achieve the same goal we achieved when we were passing props around in earlier exercises. Using the concept of containers as well as 'connect()', and '<Provider>' from 'react-redux', we will leverage all of this so we can build an application that can scale. 
 
-### Lessons 27-30
-
+Follow the same directions for Lesosn 6, using the relevent directory of the target lesson.
 
 
 ## Additional Learning
@@ -184,9 +211,10 @@ Here are some additional concepts to consider when learning how to build a moder
 * [ES5 vs ES6](https://codeburst.io/es5-vs-es6-with-example-code-9901fa0136fc)
 * Generate static assets using [Webpack](https://webpack.js.org/) and transpile ES6 into ES5 using [Babel](https://babeljs.io/) - a [tutorial](https://www.valentinog.com/blog/react-webpack-babel/) for combining React with Babel/Webpack
 * Chrome Dev tools
+  * [React](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+  * [Redux](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 * [Redux Performance](https://redux.js.org/faq/performance)
+* [Immutable data cannot be changed](https://facebook.github.io/immutable-js/) once created, leading to much simpler application development, no defensive copying, and enabling advanced memoization and change detection techniques with simple logic
+* [Declarative vs Imperative programming](https://stackoverflow.com/questions/33655534/difference-between-declarative-and-imperative-in-react-js)
 * Testing
-	* Jest
-	* https://facebook.github.io/immutable-js/
-
-
+	* [Jest](https://facebook.github.io/jest/docs/en/tutorial-react.html)
