@@ -1,21 +1,24 @@
 const deepFreeze = require('deep-freeze');
 const expect = require('expect');
 
-// TODO
-    // Run 'npm test' in the terminal, test should fail
-    // Run 'npm test' in the terminal - test should pass if function is implemented correctly
-
 const addCounter = (list) => {
-    // TODO: Implement this function
+    return [...list, 0];
 };
 
 
 const removeCounter = (list, index) => {
-    // TODO: Implement this function
+    return [
+        ...list.slice(0, index),
+        ...list.slice(index + 1)
+    ];
 };
 
 const incrementCounter = (list, index) => {
-    // TODO: Implement this function
+    return [
+        ...list.slice(0, index),
+        list[index] + 1,
+        ...list.slice(index + 1)
+    ];
 };
 
 const testAddCounter = () => {

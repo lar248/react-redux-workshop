@@ -1,24 +1,29 @@
 const deepFreeze = require('deep-freeze');
 const expect = require('expect');
 
-// TODO
-    // Run 'npm test' in the terminal, test should fail
-    // Run 'npm test' in the terminal - test should pass if function is implemented correctly
-
-const todos = (state=[], action) => {
-    // TODO: Add code to implement this function
-};
-
 const todos = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [
                 ...state,
-                todo(undefined, action)
+                {
+                    id: action.id,
+                    text: action.text,
+                    completed: false
+                }
             ];
             break;
         case 'TOGGLE_TODO':
-            return state.map(t => todo(t, action));
+            return state.map(todo => {
+                if (todo.id !== action.id) {
+                    return todo;
+                }
+
+                return {
+                    ...todo,
+                    completed: !todo.completed
+                };
+            });
             break;
         default:
             return state;

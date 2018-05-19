@@ -61,11 +61,34 @@ const FilterLink = ({
     currentFilter,
     children
 }) => {
-    // TODO: Add code to implement this function
+    if (filter === currentFilter) {
+        return <span>{children}</span>;
+    }
+
+    return (
+        <a href="#"
+            onClick={(e) => {
+                e.preventDefault();
+                store.dispatch({
+                    type: 'SET_VISIBILITY_FILTER',
+                    filter
+                });
+            }}
+        >
+            {children}
+        </a>
+    );
 };
 
 const getVisibleTodos = (todos, filter) => {
-    // TODO: Add code to implement this function
+    switch (filter) {
+        case 'SHOW_ALL':
+            return todos;
+        case 'SHOW_COMPLETED':
+            return todos.filter(t => t.completed);
+        case 'SHOW_ACTIVE':
+            return todos.filter(t => !t.completed);
+    }
 };
 
 let nextTodoId = 0;

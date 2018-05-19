@@ -76,34 +76,14 @@ const Link = ({
     );
 };
 
-const mapStateToLinkProps = (
-    state,
-    ownProps
-) => {
-    return {
-        active: ownProps.filter ===
-            state.visibilityFilter
-    };
-};
+// TODO - complete function
+const mapStateToLinkProps = undefined;
 
-const mapDispatchToLinkProps = (
-    dispatch,
-    ownProps
-) => {
-    return {
-        onClick: () => {
-            dispatch({
-                type: 'SET_VISIBILITY_FILTER',
-                filter: ownProps.filter
-            })
-        }
-    };
-};
+// TODO - complete function
+const mapDispatchToLinkProps = undefined;
 
-const FilterLink = connect(
-    mapStateToLinkProps,
-    mapDispatchToLinkProps
-)(Link);
+// TODO - complete function to connect FilterLink component
+const FilterLink = undefined;
 
 const Footer = () => (
     <p>

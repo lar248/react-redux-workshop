@@ -23,5 +23,5 @@ store.subscribe(render);
 render();
 
 document.addEventListener('click', () => {
-	store.dispatch({ type: 'INCREMENT' });
+	// TODO: Add code to dispatch an 'increment' event on click
 });

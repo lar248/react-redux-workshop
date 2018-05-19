@@ -84,33 +84,14 @@ const Todo = ({
     onClick,
     completed,
     text
-}) => (
-        <li
-            onClick={onClick}
-            style={{
-                textDecoration:
-                    completed ?
-                        'line-through' :
-                        'none'
-            }}>
-            {text}
-        </li>
-    );
+}) => (undefined); 
+// TODO: Add code to implement this function 'Todo'
 
 const TodoList = ({
     todos,
     onTodoClick
-}) => (
-        <ul>
-            {todos.map(todo =>
-                <Todo
-                    key={todo.id}
-                    {...todo}
-                    onClick={() => onTodoClick(todo.id)}
-                />
-            )}
-        </ul>
-    );
+}) => (undefined); 
+// TODO: Add code to implement this function 'TodoList'
 
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {

@@ -1,4 +1,4 @@
-
+import * as Redux from 'redux';
 
 const counter = (state = 0, action) => {
 	switch (action.type) {
@@ -11,12 +11,9 @@ const counter = (state = 0, action) => {
 		default:
 			return state;
 	}
-};
+}
 
-const createStore = (reducer) => {
-	// TODO: Add code here to implement createStore
-};
-
+const { createStore } = Redux;
 const store = createStore(counter);
 const render = () => {
 	document.body.innerText = store.getState();

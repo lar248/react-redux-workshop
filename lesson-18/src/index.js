@@ -78,17 +78,7 @@ class TodoApp extends Component {
                 <ul>
                     {this.props.todos.map(todo =>
                         <li key={todo.id}
-                            onClick={() => {
-                                store.dispatch({
-                                    type: 'TOGGLE_TODO',
-                                    id: todo.id
-                                });
-                            }}
-                            style={{
-                                textDecoration: todo.completed ?
-                                    'line-through' :
-                                    'none'
-                            }}>
+                            {/* TODO: Add code to support toggling todos */}
                             {todo.text}
                         </li>
                     )}

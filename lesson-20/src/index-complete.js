@@ -59,8 +59,7 @@ const { Component } = React;
 const FilterLink = ({
     filter,
     currentFilter,
-    children,
-    onClick
+    children
 }) => {
     if (filter === currentFilter) {
         return <span>{children}</span>;
@@ -70,46 +69,16 @@ const FilterLink = ({
         <a href="#"
             onClick={(e) => {
                 e.preventDefault();
-                onClick(filter);
+                store.dispatch({
+                    type: 'SET_VISIBILITY_FILTER',
+                    filter
+                });
             }}
         >
             {children}
         </a>
     );
 };
-
-const Footer = ({
-    visibilityFilter,
-    onFilterClick
-}) => (
-        <p>
-            Show:
-      {' '}
-            <FilterLink
-                filter='SHOW_ALL'
-                currentFilter={visibilityFilter}
-                onClick={onFilterClick}
-            >
-                All
-      </FilterLink>
-            {' '}
-            <FilterLink
-                filter='SHOW_ACTIVE'
-                currentFilter={visibilityFilter}
-                onClick={onFilterClick}
-            >
-                Active
-      </FilterLink>
-            {' '}
-            <FilterLink
-                filter='SHOW_COMPLETED'
-                currentFilter={visibilityFilter}
-                onClick={onFilterClick}
-            >
-                Completed
-      </FilterLink>
-        </p>
-    );
 
 const Todo = ({
     onClick,
@@ -143,13 +112,6 @@ const TodoList = ({
         </ul>
     );
 
-const AddTodo = ({
-    onAddClick
-}) => {
-    // TODO: Add code here to implement
-    return undefined;
-};
-
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
         case 'SHOW_ALL':
@@ -163,23 +125,67 @@ const getVisibleTodos = (todos, filter) => {
 
 let nextTodoId = 0;
 
-const TodoApp = ({
-    todos,
-    visibilityFilter
-}) => (
-        <div>
-            <AddTodo
-                // TODO: Add code here to implement
-            />
-            <TodoList
-                // TODO: Add code here to implement
-            />
-            <Footer
-                // TODO: Add code here to implement
-            />
-        </div>
-    );
-
+class TodoApp extends Component {
+    render() {
+        const {
+            todos,
+            visibilityFilter
+        } = this.props;
+        const visibleTodos = getVisibleTodos(
+            todos,
+            visibilityFilter
+        );
+        return (
+            <div>
+                <input ref={node => {
+                    this.input = node
+                }} />
+                <button onClick={() => {
+                    store.dispatch({
+                        type: 'ADD_TODO',
+                        text: this.input.value,
+                        id: nextTodoId++
+                    });
+                    this.input.value = '';
+                }}>
+                    Add Todo
+          </button>
+                <TodoList
+                    todos={visibleTodos}
+                    onTodoClick={id =>
+                        store.dispatch({
+                            type: 'TOGGLE_TODO',
+                            id
+                        })
+                    } />
+                <p>
+                    Show:
+            {' '}
+                    <FilterLink
+                        filter='SHOW_ALL'
+                        currentFilter={visibilityFilter}
+                    >
+                        All
+            </FilterLink>
+                    {' '}
+                    <FilterLink
+                        filter='SHOW_ACTIVE'
+                        currentFilter={visibilityFilter}
+                    >
+                        Active
+            </FilterLink>
+                    {' '}
+                    <FilterLink
+                        filter='SHOW_COMPLETED'
+                        currentFilter={visibilityFilter}
+                    >
+                        Completed
+            </FilterLink>
+                </p>
+            </div>
+        );
+    }
+}
 
 
 const render = () => {

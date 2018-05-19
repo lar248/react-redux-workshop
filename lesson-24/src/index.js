@@ -238,11 +238,12 @@ class VisbilityTodoList extends Component {
     }
 }
 
+// TODO: Add code to implement the component
 const TodoApp = ({ store }) => (
     <div>
-        <AddTodo store={store} />
-        <VisbilityTodoList store={store} />
-        <Footer store={store} />
+        <AddTodo />
+        <VisbilityTodoList />
+        <Footer />
     </div>
 );
 

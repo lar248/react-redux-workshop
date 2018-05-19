@@ -1,10 +1,13 @@
 const expect = require('expect');
 
 const counter = (state = 0, action) => {
-	// TODO
-		// Run 'npm test' in the terminal, test should fail
-		// Implement this function
-		// Run 'npm test' in the terminal - test should pass if function is implemented correctly
+	if (action.type === 'INCREMENT') {
+		return state + 1;
+	} else if (action.type === 'DECREMENT') {
+		return state - 1;
+	} else {
+		return state;
+	}
 }
 
 expect(

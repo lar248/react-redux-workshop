@@ -53,20 +53,6 @@ const todoApp = combineReducers({
     todos,
     visibilityFilter
 });
-
-let nextTodoId = 0;
-const addTodo = (text) => {
-    // TODO - complete function to create action
-};
-
-const setVisibilityFilter = (filter) => {
-    // TODO - complete function to create action
-};
-
-const toggleTodo = (id) => {
-    // TODO - complete function ti create acton
-};
-
 const { Component } = React;
 const { connect } = ReactRedux;
 const Link = ({
@@ -106,9 +92,10 @@ const mapDispatchToLinkProps = (
 ) => {
     return {
         onClick: () => {
-            dispatch(
-                setVisibilityFilter(ownProps.filter)
-            );
+            dispatch({
+                type: 'SET_VISIBILITY_FILTER',
+                filter: ownProps.filter
+            })
         }
     };
 };
@@ -174,6 +161,8 @@ const TodoList = ({
         </ul>
     );
 
+let nextTodoId = 0;
+
 let AddTodo = ({ dispatch }) => {
     let input;
     return (
@@ -182,7 +171,11 @@ let AddTodo = ({ dispatch }) => {
                 input = node
             }} />
             <button onClick={() => {
-                dispatch(addTodo(input.value))
+                dispatch({
+                    type: 'ADD_TODO',
+                    id: nextTodoId++,
+                    text: input.value
+                })
                 input.value = '';
             }}>
                 Add Todo
@@ -215,7 +208,10 @@ const mapStateToTodoListProps = (state) => {
 const mapDispatchToTodoListProps = (dispatch) => {
     return {
         onTodoClick: (id) => {
-            dispatch(toggleTodo(id));
+            dispatch({
+                type: 'TOGGLE_TODO',
+                id
+            })
         }
     };
 };

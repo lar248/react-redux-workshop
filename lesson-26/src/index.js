@@ -209,6 +209,7 @@ const getVisibleTodos = (todos, filter) => {
     }
 };
 
+// ADD CODE - Replace 'Provider' implementation with 'Provider from React-Redux'
 class VisbilityTodoList extends Component {
     componentDidMount() {
         const { store } = this.context;

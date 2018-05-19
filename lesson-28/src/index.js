@@ -175,7 +175,8 @@ const TodoList = ({
 
 let nextTodoId = 0;
 
-let AddTodo = ({ dispatch }) => {
+// TODO Change signature to inject dispatch
+let AddTodo = (props, { store }) => {
     let input;
     return (
         <div>
@@ -183,7 +184,7 @@ let AddTodo = ({ dispatch }) => {
                 input = node
             }} />
             <button onClick={() => {
-                dispatch({
+                store.dispatch({
                     type: 'ADD_TODO',
                     id: nextTodoId++,
                     text: input.value
@@ -195,6 +196,7 @@ let AddTodo = ({ dispatch }) => {
         </div>
     );
 };
+// TODO Change below to connect 'AddTodo' component
 AddTodo = connect()(AddTodo);
 
 const getVisibleTodos = (todos, filter) => {

@@ -210,30 +210,18 @@ const getVisibleTodos = (todos, filter) => {
 };
 
 const mapStateToProps = (state) => {
-    return {
-        todos: getVisibleTodos(
-            state.todos,
-            state.visibilityFilter
-        )
-    };
+    // TODO - complete function
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        onTodoClick: (id) => {
-            dispatch({
-                type: 'TOGGLE_TODO',
-                id
-            })
-        }
-    };
+    // TODO - complete function
 };
 
 const { connect } = ReactRedux;
-const VisbilityTodoList = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(TodoList);
+
+// TODO - complete function below
+const VisbilityTodoList = undefined;
+
 
 const TodoApp = () => (
     <div>

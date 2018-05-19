@@ -56,15 +56,25 @@ const todoApp = combineReducers({
 
 let nextTodoId = 0;
 const addTodo = (text) => {
-    // TODO - complete function to create action
+    return {
+        type: 'ADD_TODO',
+        id: nextTodoId++,
+        text
+    };
 };
 
 const setVisibilityFilter = (filter) => {
-    // TODO - complete function to create action
+    return {
+        type: 'SET_VISIBILITY_FILTER',
+        filter
+    };
 };
 
 const toggleTodo = (id) => {
-    // TODO - complete function ti create acton
+    return {
+        type: 'TOGGLE_TODO',
+        id
+    };
 };
 
 const { Component } = React;
